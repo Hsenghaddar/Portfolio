@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.pnpm-store/
+.tmp/
+*.tgz
+.env
+.env.*
+public/assets/hero-avatar-head-source.png
+public/assets/hero-avatar-natural-goatee.png
+public/assets/hero-avatar-transparent.png
+public/assets/hero-avatar-v2.png
+public/assets/hero-avatar.png
+public/assets/hero-laptop.png
