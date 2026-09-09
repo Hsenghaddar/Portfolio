@@ -331,6 +331,9 @@ footer{background:#f0ece3;color:#0b0b0d;transform:none!important;clip-path:none!
 .project-card:before{content:'SELECTED / WORK';position:absolute;right:14px;top:12px;z-index:5;font-size:.52rem;letter-spacing:.18em;color:#8b9589;border:1px solid #414740;padding:.35rem .5rem;background:#11120f}
 .project-card:hover{box-shadow:inset 6px 0 0 #9aaa96,8px 8px 0 #273028}
 .project-visual{border-bottom:1px solid #3c423b}
+.project-visual.has-image{background:#eae4d7}
+.project-image{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+.project-visual.has-image .project-number{position:relative;z-index:2;display:inline-flex;padding:.38rem .56rem;border:1px solid #ffffff55;background:#0b0b0dcc;color:#f0ece3;backdrop-filter:blur(8px)}
 
 @media(max-width:800px){.bridge-panel{grid-template-columns:1fr 52px 1fr;padding:0 1.2rem;gap:.75rem}.bridge-panel span{display:none}.bridge-panel p{font-size:.62rem}.bridge-panel p:nth-of-type(2){text-align:right}.bridge-panel b{width:44px;height:44px}.logo-stage{padding:1rem}.experience-card{padding-right:3.5rem}.experience-card:after{width:30px}.experience-card-line{right:3.8rem}}
 

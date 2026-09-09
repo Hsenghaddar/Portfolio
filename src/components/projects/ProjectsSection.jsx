@@ -37,7 +37,11 @@ function ProjectCard({ project }) {
 
   return <Card className={`project-card ${project.accent} ${project.href ? 'has-link' : ''}`} onMouseMove={project.href ? followCursor : undefined} {...linkProps}>
     {project.href && <span className="project-cursor" aria-hidden="true"><ArrowUpRight /></span>}
-    <div className="project-visual"><span className="project-number">{project.n}</span><div className="visual-window"><span>&lt;</span><span>/</span><span>&gt;</span></div></div>
+    <div className={`project-visual ${project.image ? 'has-image' : ''}`}>
+      {project.image && <img className="project-image" src={project.image} alt={`${project.title} interface`} />}
+      <span className="project-number">{project.n}</span>
+      {!project.image && <div className="visual-window"><span>&lt;</span><span>/</span><span>&gt;</span></div>}
+    </div>
     <div className="project-copy"><p className="project-kind">{project.kind}</p><h3>{project.title}</h3><p>{project.description}</p><div className="project-footer"><div>{project.tech.map(technology => <span key={technology}>{technology}</span>)}</div></div></div>
   </Card>
 }
