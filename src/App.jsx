@@ -10,6 +10,27 @@ import Footer from './components/footer/Footer'
 
 export default function App() {
   useEffect(() => {
+    const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches || navigator.maxTouchPoints > 0
+    if (!isTouchDevice) return
+
+    const lockHeroHeight = () => {
+      document.documentElement.style.setProperty('--mobile-hero-height', `${window.innerHeight}px`)
+    }
+    let orientationTimer
+    const handleOrientationChange = () => {
+      window.clearTimeout(orientationTimer)
+      orientationTimer = window.setTimeout(lockHeroHeight, 250)
+    }
+
+    lockHeroHeight()
+    window.addEventListener('orientationchange', handleOrientationChange)
+    return () => {
+      window.removeEventListener('orientationchange', handleOrientationChange)
+      window.clearTimeout(orientationTimer)
+    }
+  }, [])
+
+  useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const lenis = new Lenis({
       autoRaf: true,

@@ -8,6 +8,9 @@ function MagnetAvatar() {
   const [active, setActive] = useState(false)
 
   useEffect(() => {
+    const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches || navigator.maxTouchPoints > 0
+    if (isTouchDevice) return
+
     const handlePointer = event => {
       if (!target.current) return
       const normalizedX = (event.clientX / window.innerWidth) * 2 - 1

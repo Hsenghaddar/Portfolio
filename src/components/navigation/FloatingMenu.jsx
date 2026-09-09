@@ -7,14 +7,17 @@ export default function FloatingMenu() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const update = () => setVisible(window.scrollY > window.innerHeight * .82)
+    const smallScreen = window.matchMedia('(max-width: 800px)')
+    const update = () => setVisible(smallScreen.matches || window.scrollY > window.innerHeight * .82)
     const closeOnEscape = event => event.key === 'Escape' && setOpen(false)
     update()
     window.addEventListener('scroll', update, { passive: true })
     window.addEventListener('keydown', closeOnEscape)
+    smallScreen.addEventListener('change', update)
     return () => {
       window.removeEventListener('scroll', update)
       window.removeEventListener('keydown', closeOnEscape)
+      smallScreen.removeEventListener('change', update)
     }
   }, [])
 
